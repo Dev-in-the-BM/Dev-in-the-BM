@@ -4,48 +4,57 @@
 
 <div align="center">
 
-# Hi 👋, I'm Dev-in-the-BM
-
-### Vibe Coder and Yeshiva Bochur
+# Hi 👋, I'm Dev-in-the-BM  
+###  Yeshiva Bochur & Vibe Coder
 
 <img src="https://github.com/Dev-in-the-BM.png" alt="Dev-in-the-BM" width="150" height="150" style="border-radius: 50%;" />
 
 </div>
 
+---
 
-## 🚀 Projects
+## 💬 About Me
 
-| Project | Description | Links |
-|---|---|---|
-| Jdate | A GNOME extension to add the jewish date to the top bar and notification center. | [GitHub](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-| Crescent Remixer | Nano Banana powered image remixer. | [GitHub](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
-
-## 🛠️ Skills & Technologies
-
-### 💻 Programming Languages
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
-### 💻 Other
-
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)&nbsp;&nbsp;&nbsp;![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-
-## 📊 GitHub Stats & Activity
-
-<div align="center">
-
-![Visitor Count](https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square)
-
-![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=cobalt&column=7&margin-w=15&margin-h=15)
-
-</div>
+- 🎩 Yeshiva bochur - currently learning 
+- 🛠️ App modder — I love making app mods, using a *flip phone*
+- 💬 Active on [JTech Forums](https://forums.jtech.community) — discussing filtering, Linux, app modding, and pretty much anything tech related 
+- 🐧 Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream](https://forums.jtechforums.org/t/make-linux-mainstream/1754)**   
+- 💻 Somehow my Linux environment *still works*. Not sure why.  
+- 💡 Motto: *“If it ain’t broken, tweak it anyway.”*
 
 ---
 
+## 🚀 Featured Projects
+
+| Project | Description | Links |
+|---|---|---|
+| 🗓️ **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [GitHub](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
+| 🌀 **Crescent Remixer** | Nano Banana powered image remixer. | [GitHub](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
+
+---
+
+## 🧠 Skills & Tools
+
+### 💻 Languages
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+### 🧰 Environments & Tools
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Zen Browser](https://img.shields.io/badge/Zen%20Browser-282828?style=for-the-badge&logo=zenbrowser&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
+---
+
+## 📊 GitHub Stats
+
 <div align="center">
 
-### 🎯 "Code is like humor. When you have to explain it, it's bad." – Cory House
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Dev-in-the-BM&show_icons=true&theme=tokyonight)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Dev-in-the-BM&layout=compact&theme=tokyonight)
+  
+![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=cobalt&column=7&margin-w=15&margin-h=15)
 
-![Profile Views](https://komarev.com/ghpvc/?username=Dev-in-the-BM&color=brightgreen&style=flat-square&label=Profile+Views)
+![Visitor Count](https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square)
 
 </div>
