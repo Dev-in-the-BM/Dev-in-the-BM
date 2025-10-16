@@ -16,7 +16,7 @@
 ## 💬 About Me
 
 - 🎩 Yeshiva bochur - currently learning בתולה נשאת 
-- 🛠️ App modder — I love making app mods, out of a *flip phone*
+- 🛠️ App modder — I love making app mods, out of my *flip phone*
 - 💬 Active on [JTech Forums](https://forums.jtech.community) — discussing filtering, Linux, app modding, and pretty much anything tech related 
 - 🐧 Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream](https://forums.jtechforums.org/t/make-linux-mainstream/1754)**   
 - 💻 Somehow my Linux environment still works. Not sure why.
