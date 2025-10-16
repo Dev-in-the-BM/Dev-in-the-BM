@@ -4,8 +4,8 @@
 
 <div align="center">
 
-# Hi 👋, I'm Dev-in-the-BM  
-###  🎩 Yeshiva Bochur • ✨ Vibe Coder
+# Hi <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" />, I'm Dev-in-the-BM  
+###  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" /> Yeshiva Bochur • <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" /> Vibe Coder
 
 <img src="https://github.com/Dev-in-the-BM.png" alt="Dev-in-the-BM" width="150" height="150" style="border-radius: 50%;" />
 
@@ -13,30 +13,31 @@
 
 ---
 
-## 💬 About Me
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Information.png" alt="Information" width="25" height="25" /> About Me
 
-- 🎩 Yeshiva bochur - currently learning בתולה נשאת 
-- 🛠️ App modder — I love making app mods, out of my *flip phone*
-- 💬 Active on [JTech Forums](http://forums.jtechforums.org/invites/8jD5U8NMxr) — discussing filtering, Linux, app modding, and pretty much anything tech related 
-- 🐧 Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream](https://forums.jtechforums.org/t/make-linux-mainstream/1754)**   
-- 💻 Somehow my Linux environment still works. Not sure why.
+- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" /> Yeshiva bochur - currently learning בתולה נשאת 
+- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Hammer and Wrench" width="25" height="25" />
+ App modder — I love making app mods, out of my *flip phone*
+- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Right%20Anger%20Bubble.png" alt="Right Anger Bubble" width="25" height="25" /> Active on [JTech Forums](http://forums.jtechforums.org/invites/8jD5U8NMxr) — discussing filtering, Linux, app modding, and pretty much anything tech related 
+- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Penguin.png" alt="Penguin" width="25" height="25" /> Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream](https://forums.jtechforums.org/t/make-linux-mainstream/1754)**   
+- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Desktop Computer" width="25" height="25" /> Somehow my Linux environment still works. Not sure why.
 ---
 
-## 🚀 Featured Projects
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /> Featured Projects
 
 | Project | Description | Links |
 |---|---|---|
-| 🗓️ **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [GitHub](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-| 🌀 **Crescent Remixer** | Nano Banana powered image remixer. | [GitHub](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
+| <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Calendar.png" alt="Calendar" width="25" height="25" /> **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [GitHub](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
+| <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Crescent%20Moon.png" alt="Crescent Moon" width="25" height="25" /> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" /> **Crescent Remixer** | Nano Banana powered image remixer. | [GitHub](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
 
 ---
 
-## 🧠 Skills & Tools
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="25" height="25" /> Skills & Tools
 
 ### **</>** Languages
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-### 🧰 Environments & Tools
+### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="25" height="25" /> Environments & Tools
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white)
 ![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
@@ -46,14 +47,13 @@
 
 ---
 
-## 📊 GitHub Stats
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Bar Chart" width="25" height="25" /> GitHub Stats
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Dev-in-the-BM&show_icons=true&theme=tokyonight)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Dev-in-the-BM&layout=compact&theme=tokyonight)
-  
-![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=cobalt&column=7&margin-w=15&margin-h=15)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Dev-in-the-BM&show_icons=true&theme=radical)
+
+![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=radical&column=7&margin-w=15&margin-h=15&title=Followers,Commit,Issues,Repositories)
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square)
 
