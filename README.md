@@ -7,7 +7,6 @@
 # Hi <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="50" height="50" />, I'm Dev-in-the-BM  
 ###  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" /> Yeshiva Bochur • <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" /> Vibe Coder
 
-<img src="https://github.com/Dev-in-the-BM.png" alt="Dev-in-the-BM" width="150" height="150" style="border-radius: 50%;" />
 
 </div>
 
@@ -51,9 +50,10 @@
 
 ## Thank you for your support! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands.png" alt="Folded Hands" width="30" height="30" />
 
-</div>
+
 
 [![Buy me a coffee](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Creator%20Support%20Me%20Sticker%20by%20Buy%20Me%20a%20Coffee.gif?raw=true)](https://buymeacoffee.com/devinthebm)
+</div>
 ---
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="30" height="30" /> Skills & Tools
