@@ -31,6 +31,31 @@
 
 ---
 
+<div align="center">
+
+</div>
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="25" height="25" /> Sponsor my porjects
+
+<table border="0" cellpadding="10" cellspacing="0" align="center"> <tr valign="top"> <td width="33%" align="center"> <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Tux.PNG?raw=true" alt="Tux Linux Mascot" width="50" height="50" />
+
+<strong>FOSS Projects</strong> <p><small>Contributing to and creating open-source software for the community.</small></p> </td> <td width="33%" align="center"> <img src="https://raw.githubusercontent.com/Dev-in-the-BM/Dev-in-the-BM/5faee36148d23546f43bd27b61012bec21164caa/android-head_flat.svg" alt="Android Head" width="55" height="45" />
+
+<strong>Android App Mods</strong> <p><small>Modifying Android apps for kashrus and better usability on filtered devices.</small></p> </td> <td width="33%" align="center"> <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Jtech%20Logo.png?raw=true" alt="JTech Logo" width="50" height="50" />
+
+<strong>JTech Forums</strong> <p><small>Active participation and contributions to discussions about kosher tech, filtering, Linux, and more.</small></p> </td> </tr> </table>
+
+<div align="center">
+
+### Your sponsorship helps me dedicate more time to these projects.
+
+## Thank you for your support! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands.png" alt="Folded Hands" width="30" height="30" />
+
+</div>
+
+[![Buy me a coffee](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Creator%20Support%20Me%20Sticker%20by%20Buy%20Me%20a%20Coffee.gif?raw=true)](https://buymeacoffee.com/devinthebm)
+---
+
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="30" height="30" /> Skills & Tools
 
 ### **</>** Languages
