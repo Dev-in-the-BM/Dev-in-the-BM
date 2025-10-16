@@ -52,7 +52,7 @@
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Dev-in-the-BM&show_icons=true&theme=radical)
 
-![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=radical&column=7&margin-w=15&margin-h=15&title=Followers,Commit,Issues,Repositories)
+![GitHub Trophy](https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=radical&column=7&margin-w=15&margin-h=15&title=Followers,Commit,Issues,Repositories,Stars)
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square)
 
