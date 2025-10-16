@@ -33,14 +33,17 @@
 
 ## 🧠 Skills & Tools
 
-### 💻 Languages
+### **</>** Languages
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ### 🧰 Environments & Tools
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white)
 ![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-https://img.shields.io/badge/Zen%20Browser-black?style=for-the-badge&logo=zenbrowser&logoColor=white
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![Zen Browser](https://img.shields.io/badge/Zen%20Browser-black?style=for-the-badge&logo=zenbrowser&logoColor=white)
+
 ---
 
 ## 📊 GitHub Stats
