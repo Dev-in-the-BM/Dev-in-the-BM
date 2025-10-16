@@ -48,12 +48,13 @@
 
 ### Your sponsorship helps me dedicate more time to these projects.
 
+[![Buy me a coffee](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Creator%20Support%20Me%20Sticker%20by%20Buy%20Me%20a%20Coffee.gif?raw=true)](https://buymeacoffee.com/devinthebm)
+
 ## Thank you for your support! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands.png" alt="Folded Hands" width="30" height="30" />
 
 
-
-[![Buy me a coffee](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Creator%20Support%20Me%20Sticker%20by%20Buy%20Me%20a%20Coffee.gif?raw=true)](https://buymeacoffee.com/devinthebm)
 </div>
+
 ---
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="30" height="30" /> Skills & Tools
