@@ -5,7 +5,7 @@
 <div align="center">
 
 # Hi 👋, I'm Dev-in-the-BM  
-###  Yeshiva Bochur & Vibe Coder
+###  🎩 Yeshiva Bochur • ✨ Vibe Coder
 
 <img src="https://github.com/Dev-in-the-BM.png" alt="Dev-in-the-BM" width="150" height="150" style="border-radius: 50%;" />
 
@@ -15,13 +15,11 @@
 
 ## 💬 About Me
 
-- 🎩 Yeshiva bochur - currently learning 
-- 🛠️ App modder — I love making app mods, using a *flip phone*
+- 🎩 Yeshiva bochur - currently learning בתולה נשאת 
+- 🛠️ App modder — I love making app mods, out of a *flip phone*
 - 💬 Active on [JTech Forums](https://forums.jtech.community) — discussing filtering, Linux, app modding, and pretty much anything tech related 
 - 🐧 Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream](https://forums.jtechforums.org/t/make-linux-mainstream/1754)**   
-- 💻 Somehow my Linux environment *still works*. Not sure why.  
-- 💡 Motto: *“If it ain’t broken, tweak it anyway.”*
-
+- 💻 Somehow my Linux environment still works. Not sure why.
 ---
 
 ## 🚀 Featured Projects
@@ -42,8 +40,7 @@
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Zen Browser](https://img.shields.io/badge/Zen%20Browser-282828?style=for-the-badge&logo=zenbrowser&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
+https://img.shields.io/badge/Zen%20Browser-black?style=for-the-badge&logo=zenbrowser&logoColor=white
 ---
 
 ## 📊 GitHub Stats
@@ -58,3 +55,4 @@
 ![Visitor Count](https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square)
 
 </div>
+
