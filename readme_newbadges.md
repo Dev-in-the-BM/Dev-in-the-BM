@@ -61,7 +61,7 @@
 
 ### **</>** Languages
 
-![Python](https://readme-components.vercel.app/api?component=logo&logo=python&fill=3776AB&textfill=ffffff&desc=Python)
+![Python](https://readme-components.vercel.app/api?component=logo&logo=python&fill=3776AB&textfill=ffffff&desc=Python&scale=0.7)
 
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="25" height="25" /> Environments & Tools
 
