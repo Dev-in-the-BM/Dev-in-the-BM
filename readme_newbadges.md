@@ -22,12 +22,43 @@
 
 ---
 
+---
+
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="30" height="30" /> Featured Projects
 
-| Project | Description | Links |
-|---|---|---|
-|   **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-|    **Crescent Remixer** | Nano Banana powered image remixer. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Description</th>
+        <th>Links</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Jdate</strong></td>
+        <td>A GNOME extension adding the Jewish date to the top bar.</td>
+        <td align="center">
+          <a href="https://github.com/Dev-in-the-BM/JDate-devinthebm.com">
+            <img src="https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0" alt="GitHub Link">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Crescent Remixer</strong></td>
+        <td>Nano Banana powered image remixer.</td>
+        <td align="center">
+          <a href="https://github.com/Dev-in-the-BM/Crescent-Remixer">
+            <img src="https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0" alt="GitHub Link">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
 
 ---
 
