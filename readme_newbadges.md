@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/banner.png" alt="Profile Banner" width="100%" />
+<img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/banner.png" alt="Profile Banner" width="100%" />
+
 </div>
 
 <div align="center">
@@ -25,8 +26,8 @@
 
 | Project | Description | Links |
 |---|---|---|
-| <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Calendar.png" alt="Calendar" width="25" height="25" />  **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-|  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Crescent%20Moon.png" alt="Crescent Moon" width="25" height="25" /> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" /> **Crescent Remixer** | Nano Banana powered image remixer. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
+|   **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
+|    **Crescent Remixer** | Nano Banana powered image remixer. | [![GitHub](https://readme-components.vercel.app/api?component=logo&logo=github&fill=ffffff&textfill=000000&text=false&scale=1.0)](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
 
 ---
 
