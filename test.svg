@@ -1,0 +1,79 @@
+<svg fill="none" viewBox="0 0 700 450" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .card-background {
+      fill: #ffffff; /* White background for the card */
+      stroke: #e0e0e0; /* Light gray border */
+      stroke-width: 1;
+    }
+    .main-title {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333333; /* Dark text color */
+      margin-bottom: 10px;
+      border-bottom: 2px solid #5C7AEB; /* Blue underline */
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+    .content-list {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #555555;
+      line-height: 1.5;
+      padding: 0;
+      list-style-type: none;
+    }
+    .content-list li {
+      margin-bottom: 5px;
+    }
+    .content-list img {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+  </style>
+
+  <rect x="1" y="1" rx="10" ry="10" width="698" height="448" class="card-background" />
+
+  <foreignObject x="20" y="20" width="660" height="410">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; height: 100%;">
+      
+      <div style="flex: 1; padding-right: 15px; border-right: 1px solid #e0e0e0;">
+        <h2 class="main-title">About Me</h2>
+        <ul class="content-list">
+          <li><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="20" height="20" /> Yeshiva bochur - currently learning **בתולה נשאת**</li>
+          <li><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Hammer and Wrench" width="20" height="20" /> App modder - I love making app mods, out of my *flip phone*</li>
+          <li><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Left%20Speech%20Bubble.png" alt="Left Speech Bubble" width="20" height="20" /> Active on **[JTech Forums]** — discussing filtering, Linux, app modding, and pretty much anything tech related</li>
+          <li><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Penguin.png" alt="Penguin" width="20" height="20" /> Do you think Linux on desktop is ready to go mainstream? **[Make Linux Mainstream]**</li>
+          <li><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Desktop Computer" width="25" height="25" /> Somehow my Linux environment still works. Not sure why.</li>
+        </ul>
+      </div>
+
+      <div style="flex: 1; padding-left: 15px;">
+        <h2 class="main-title">Skills & Tools</h2>
+
+        <h3 style="font-family: Arial, sans-serif; font-size: 16px; margin-top: 0; margin-bottom: 5px;">&lt;/> Languages</h3>
+        <div class="badge-container">
+          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+        </div>
+        
+        <h3 style="font-family: Arial, sans-serif; font-size: 16px; margin-top: 20px; margin-bottom: 5px;">Environments & Tools</h3>
+        <div class="badge-container">
+          <img src="https://img.shields.io/static/v1?label=🧠&message=Yiddeshe%20Kup&labelColor=000000&color=333333&style=for-the-badge" alt="Yiddeshe Kup - Minimal Divide">
+          <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"> 
+          <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white" alt="Ubuntu"> 
+          <img src="https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white" alt="GNOME"> 
+          <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"> 
+          <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code"> 
+          <img src="https://img.shields.io/badge/Zen%20Browser-black?style=for-the-badge&logo=zenbrowser&logoColor=white" alt="Zen Browser">
+        </div>
+      </div>
+      
+    </div>
+  </foreignObject>
+</svg>
