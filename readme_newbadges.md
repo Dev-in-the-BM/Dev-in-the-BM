@@ -64,7 +64,7 @@
 
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="25" height="25" /> Environments & Tools
 
-![Linux](https://readme-components.vercel.app/api?component=logo&logo=linux&fill=FCC624&textfill=000000&desc=Linux&scale=0.6) ![Ubuntu](https://readme-components.vercel.app/api?component=logo&logo=ubuntu&fill=E95420&textfill=ffffff&desc=Ubuntu&scale=0.6) ![GNOME](https://readme-components.vercel.app/api?component=logo&logo=gnome&fill=4A86CF&textfill=ffffff&desc=GNOME&scale=0.6) ![Git](https://readme-components.vercel.app/api?component=logo&logo=git&fill=F05032&textfill=ffffff&desc=Git&scale=0.6)![VS Code](https://readme-components.vercel.app/api?component=logo&logo=visualstudiocode&fill=007ACC&textfill=ffffff&desc=VS%20Code&scale=0.6) ![Zen Browser](https://readme-components.vercel.app/api?component=logo&logo=🌐&fill=000000&textfill=ffffff&desc=Zen%20Browser&scale=0.7)
+![Linux](https://readme-components.vercel.app/api?component=logo&logo=linux&fill=FCC624&textfill=000000&desc=Linux&scale=0.7) ![Ubuntu](https://readme-components.vercel.app/api?component=logo&logo=ubuntu&fill=E95420&textfill=ffffff&desc=Ubuntu&scale=0.7) ![GNOME](https://readme-components.vercel.app/api?component=logo&logo=gnome&fill=4A86CF&textfill=ffffff&desc=GNOME&scale=0.7) ![Git](https://readme-components.vercel.app/api?component=logo&logo=git&fill=F05032&textfill=ffffff&desc=Git&scale=0.7)![VS Code](https://readme-components.vercel.app/api?component=logo&logo=visualstudiocode&fill=007ACC&textfill=ffffff&desc=VS%20Code&scale=0.7) ![Zen Browser](https://readme-components.vercel.app/api?component=logo&logo=🌐&fill=000000&textfill=ffffff&desc=Zen%20Browser&scale=0.7)
 
 ---
 
