@@ -357,6 +357,30 @@
             border: 2px solid transparent;
             border-radius: 16px;
         }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            animation: fadeInAnimation 1s ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -442,7 +466,7 @@
         </div>
     </section>
     <!-- About Section -->
-    <section id="about" class="py-20 px-6">
+    <section id="about" class="py-20 px-6 animate-on-scroll">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-5xl font-black text-center mb-12">
                 <span class="emoji-bounce inline-block">ℹ️</span> About Me
@@ -516,7 +540,7 @@
         </div>
     </section>
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 bg-gray-900 bg-opacity-50">
+    <section id="projects" class="py-20 px-6 bg-gray-900 bg-opacity-50 animate-on-scroll">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-5xl font-black text-center mb-12">
                 <span class="emoji-bounce inline-block">⭐</span> Featured Projects
@@ -574,7 +598,7 @@
     </section>
 
     <!-- Sponsor Section -->
-    <section id="sponsor" class="py-20 px-6">
+    <section id="sponsor" class="py-20 px-6 animate-on-scroll">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-5xl font-black text-center mb-12">
                 <span class="emoji-bounce inline-block">🧰</span> Sponsor my projects
@@ -609,7 +633,7 @@
         </div>
     </section>
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6">
+    <section id="skills" class="py-20 px-6 animate-on-scroll">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-5xl font-black text-center mb-12">
                 <span class="emoji-bounce inline-block">🧠</span> Skills & Tools
@@ -662,7 +686,7 @@
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gray-900 bg-opacity-50">
+    <section id="contact" class="py-20 px-6 bg-gray-900 bg-opacity-50 animate-on-scroll">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-5xl font-black mb-8">
                 <span class="emoji-bounce inline-block">💬</span> Get In Touch
@@ -818,15 +842,16 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => {
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
             observer.observe(section);
         });
 
