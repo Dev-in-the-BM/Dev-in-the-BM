@@ -289,43 +289,36 @@
         .terminal-buttons {
             display: flex;
             align-items: center;
+            gap: 8px;
         }
 
         .bar__button {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0;
-            margin-right: 5px;
-            font-size: 8px;
-            height: 12px;
-            width: 12px;
-            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #333;
             border: none;
-            border-radius: 100%;
-            background: linear-gradient(#7d7871 0%, #595953 100%);
-            text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
-            box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
         }
 
         .bar__button:hover {
-            cursor: pointer;
+            background-color: #444;
         }
 
-        .bar__button:focus {
-            outline: none;
+        .bar__button--exit:hover {
+            background-color: #e04040;
         }
 
-        .bar__button--exit {
-            background: linear-gradient(#7d7871 0%, #595953 100%);
-            background-clip: padding-box;
-        }
-
-        .prompt-user { color: #4878c0; }
-        .prompt-at { color: #DBDBA4; }
-        .prompt-hostname { color: #CD3131; }
-        .prompt-directory { color: #7EDA28; }
-        .prompt-dollar { color: #DBDBA4; }
+        .prompt-user { color: #5555FF; }
+        .prompt-at { color: #FFFF55; }
+        .prompt-hostname { color: #FF5555; }
+        .prompt-directory { color: #55FF55; }
+        .prompt-dollar { color: #FFFF55; }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -509,9 +502,9 @@
             <div class="terminal-header">
                 <span class="text-gray-400 text-sm">dev-in-the-bm@ubuntu: ~</span>
                 <div class="terminal-buttons">
-                    <button class="bar__button bar__button--exit">&#10005;</button>
-                    <button class="bar__button">&#9472;</button>
-                    <button class="bar__button">&#9723;</button>
+                    <button class="bar__button" aria-label="Minimize"><i data-feather="minus" class="w-3 h-3"></i></button>
+                    <button class="bar__button" aria-label="Maximize"><i data-feather="square" class="w-3 h-3"></i></button>
+                    <button class="bar__button bar__button--exit" aria-label="Close"><i data-feather="x" class="w-3 h-3"></i></button>
                 </div>
             </div>
             <div class="p-6 text-left">
