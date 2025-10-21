@@ -361,6 +361,12 @@
                         linear-gradient(135deg, var(--accent), var(--accent-secondary)) border-box;
             border: 2px solid transparent;
             border-radius: 16px;
+            background-size: 200% 200%;
+            transition: background-position 0.8s ease;
+        }
+
+        .gradient-border:hover {
+            background-position: 100% 100%;
         }
 
         .animate-on-scroll {
