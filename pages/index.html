@@ -269,6 +269,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
             overflow: hidden;
+            min-height: 300px; /* Prevent resizing during animation */
         }
         
         .terminal-header {
@@ -277,14 +278,23 @@
             border-bottom: 1px solid #30363d;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
         }
         
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
         .terminal-dot {
-            width: 12px;
-            height: 12px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            background-color: #3a3a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0e0;
         }
         
         @keyframes pulse {
@@ -314,10 +324,19 @@
             border-right: 3px solid var(--accent);
             animation: blink 1s infinite;
         }
+
+        .blinking-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background-color: var(--text-secondary);
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
         
         @keyframes blink {
-            0%, 50% { border-color: var(--accent); }
-            51%, 100% { border-color: transparent; }
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
         
         #particles-js {
@@ -458,19 +477,27 @@
     <section id="terminal-section" class="min-h-screen flex items-center justify-center px-6">
         <div class="terminal max-w-3xl mx-auto">
             <div class="terminal-header">
-                <div class="terminal-dot bg-red-500"></div>
-                <div class="terminal-dot bg-yellow-500"></div>
-                <div class="terminal-dot bg-green-500"></div>
-                <span class="ml-4 text-gray-400 text-sm">terminal</span>
+                <span class="text-gray-400 text-sm">dev-in-the-bm@ubuntu: ~</span>
+                <div class="terminal-buttons">
+                    <div class="terminal-dot">
+                        <i data-feather="minus" class="w-4 h-4"></i>
+                    </div>
+                    <div class="terminal-dot">
+                        <i data-feather="square" class="w-4 h-4"></i>
+                    </div>
+                    <div class="terminal-dot">
+                        <i data-feather="x" class="w-4 h-4"></i>
+                    </div>
+                </div>
             </div>
             <div class="p-6 text-left">
-                <div class="text-green-400">
-                    <p id="line1">$ </p>
-                    <p id="line2" class="text-gray-300 ml-4"></p>
-                    <p id="line3" class="mt-2">$ </p>
-                    <p id="line4" class="text-gray-300 ml-4"></p>
-                    <p id="line5" class="mt-2">$ </p>
-                    <p id="line6" class="text-gray-300 ml-4"></p>
+                <div class="text-gray-300">
+                    <p id="line1" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line1-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line2" class="mb-4 ml-2" style="display: none;"></p>
+                    <p id="line3" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line3-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line4" class="mb-4 ml-2" style="display: none;"></p>
+                    <p id="line5" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line5-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line6" class="ml-2" style="display: none;"></p>
                 </div>
             </div>
         </div>
@@ -876,43 +903,74 @@
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+            const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            gsap.set(sectionsToAnimate, { opacity: 0 }); // Initially hide sections
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: "#terminal-section",
                     start: "top top",
-                    end: "+=3000",
-                    scrub: true,
+                    end: "+=4000", // Increased duration for a better feel
+                    scrub: 1,      // Smoother scrubbing
                     pin: true,
+                    onLeave: () => {
+                        // When the terminal unpins, initialize the scroll animations for the rest of the page.
+                        sectionsToAnimate.forEach(section => {
+                            gsap.fromTo(section,
+                                { opacity: 0, y: 50 },
+                                {
+                                    opacity: 1,
+                                    y: 0,
+                                    duration: 1,
+                                    scrollTrigger: {
+                                        trigger: section,
+                                        start: 'top 80%',
+                                        end: 'bottom 20%',
+                                        toggleActions: 'play reverse play reverse'
+                                    }
+                                }
+                            );
+                        });
+                    }
                 }
             });
 
-            tl.to("#hero", { opacity: 0 })
-              .from("#terminal-section", { opacity: 0 })
-              .to("#line1", { text: "$ whoami", duration: 1 })
-              .to("#line2", { text: "Yeshiva bochur - currently learning בתולה נשאת", duration: 2 })
-              .to("#line3", { text: "$ ls -la ~/mods/", duration: 1 })
-              .to("#line4", { text: "flip-phone-apps/ filtered-device-tools/ kosher-mods/", duration: 2 })
-              .to("#line5", { text: '$ echo "Active on JTech Forums - Discussing filtering, Linux, app modding"', duration: 2 })
-              .to("#line6", { text: "Active on JTech Forums - Discussing filtering, Linux, app modding", duration: 3 });
+            // 1. Fade out hero, fade in terminal
+            tl.to("#hero", { opacity: 0, duration: 2 })
+              .from(".terminal", { opacity: 0, duration: 2 }, "-=1")
 
-            // Animate sections on scroll
-            const sections = document.querySelectorAll('.animate-on-scroll');
-            sections.forEach(section => {
-                gsap.fromTo(section,
-                    { opacity: 0, scale: 0.9 },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        duration: 1,
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 80%',
-                            end: 'bottom 20%',
-                            toggleActions: 'play reverse play reverse'
-                        }
-                    }
-                );
-            });
+              // 2. Type first command
+              .to("#line1 .blinking-cursor", { opacity: 1, duration: 0.5 }) // cursor appears
+              .to("#line1-text", { text: "whoami", duration: 2 })
+              .to("#line1 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5") // cursor disappears
+
+              // 3. Show first output
+              .set("#line2", { display: "block", text: "Yeshiva Bochur / Vibe Coder / Linux Tinkerer" })
+              .from("#line2", { opacity: 0, duration: 2 }, "-=0.5")
+
+              // 4. Type second command
+              .to("#line3 .blinking-cursor", { opacity: 1, duration: 0.5 }, "+=1")
+              .to("#line3-text", { text: "cat ~/status.txt", duration: 3 })
+              .to("#line3 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5")
+
+              // 5. Show second output
+              .set("#line4", { display: "block", text: "Actively contributing to JTech Forums and modding apps for flip phones." })
+              .from("#line4", { opacity: 0, duration: 2 }, "-=0.5")
+
+              // 6. Type third command
+              .to("#line5 .blinking-cursor", { opacity: 1, duration: 0.5 }, "+=1")
+              .to("#line5-text", { text: "ls -l ~/projects", duration: 3 })
+              .to("#line5 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5")
+
+              // 7. Show third output (as a pre-formatted block)
+              .set("#line6", {
+                  display: "block",
+                  innerHTML: `<pre>
+-rw-r--r-- 1 dev-in-the-bm root 1.2K Oct 21 10:00 JDate-GNOME-Extension
+-rw-r--r-- 1 dev-in-the-bm root 3.4M Oct 20 14:30 Crescent-Remixer
+</pre>`
+              })
+              .from("#line6", { opacity: 0, duration: 2 }, "-=0.5");
         });
     </script>
 </body>
