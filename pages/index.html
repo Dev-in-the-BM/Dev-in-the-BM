@@ -894,6 +894,25 @@
               .to("#line4", { text: "flip-phone-apps/ filtered-device-tools/ kosher-mods/", duration: 2 })
               .to("#line5", { text: '$ echo "Active on JTech Forums - Discussing filtering, Linux, app modding"', duration: 2 })
               .to("#line6", { text: "Active on JTech Forums - Discussing filtering, Linux, app modding", duration: 3 });
+
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.animate-on-scroll');
+            sections.forEach(section => {
+                gsap.fromTo(section,
+                    { opacity: 0, scale: 0.9 },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 80%',
+                            end: 'bottom 20%',
+                            toggleActions: 'play reverse play reverse'
+                        }
+                    }
+                );
+            });
         });
     </script>
 </body>
