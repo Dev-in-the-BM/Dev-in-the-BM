@@ -269,7 +269,11 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 14px;
             overflow: hidden;
-            min-height: 300px; /* Prevent resizing during animation */
+            min-height: 350px; /* Prevent resizing during animation */
+        }
+
+        .terminal:hover {
+            cursor: text;
         }
         
         .terminal-header {
@@ -279,23 +283,49 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            cursor: default;
         }
         
         .terminal-buttons {
             display: flex;
-            gap: 8px;
+            align-items: center;
         }
 
-        .terminal-dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #3a3a3a;
+        .bar__button {
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: #e0e0e0;
+            align-items: center;
+            padding: 0;
+            margin-right: 5px;
+            font-size: 8px;
+            height: 12px;
+            width: 12px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 100%;
+            background: linear-gradient(#7d7871 0%, #595953 100%);
+            text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
+            box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
         }
+
+        .bar__button:hover {
+            cursor: pointer;
+        }
+
+        .bar__button:focus {
+            outline: none;
+        }
+
+        .bar__button--exit {
+            background: linear-gradient(#7d7871 0%, #595953 100%);
+            background-clip: padding-box;
+        }
+
+        .prompt-user { color: #4878c0; }
+        .prompt-at { color: #DBDBA4; }
+        .prompt-hostname { color: #CD3131; }
+        .prompt-directory { color: #7EDA28; }
+        .prompt-dollar { color: #DBDBA4; }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -479,24 +509,30 @@
             <div class="terminal-header">
                 <span class="text-gray-400 text-sm">dev-in-the-bm@ubuntu: ~</span>
                 <div class="terminal-buttons">
-                    <div class="terminal-dot">
-                        <i data-feather="minus" class="w-4 h-4"></i>
-                    </div>
-                    <div class="terminal-dot">
-                        <i data-feather="square" class="w-4 h-4"></i>
-                    </div>
-                    <div class="terminal-dot">
-                        <i data-feather="x" class="w-4 h-4"></i>
-                    </div>
+                    <button class="bar__button bar__button--exit">&#10005;</button>
+                    <button class="bar__button">&#9472;</button>
+                    <button class="bar__button">&#9723;</button>
                 </div>
             </div>
             <div class="p-6 text-left">
                 <div class="text-gray-300">
-                    <p id="line1" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line1-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line1" class="mb-2">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line1-text"></span><span class="blinking-cursor"></span>
+                    </p>
                     <p id="line2" class="mb-4 ml-2" style="display: none;"></p>
-                    <p id="line3" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line3-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line3" class="mb-2" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line3-text"></span><span class="blinking-cursor"></span>
+                    </p>
                     <p id="line4" class="mb-4 ml-2" style="display: none;"></p>
-                    <p id="line5" class="mb-2"><span class="text-green-400">dev-in-the-bm@ubuntu:~$</span> <span id="line5-text"></span><span class="blinking-cursor"></span></p>
+                    <p id="line5" class="mb-2" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line5-text"></span><span class="blinking-cursor"></span>
+                    </p>
                     <p id="line6" class="ml-2" style="display: none;"></p>
                 </div>
             </div>
@@ -940,37 +976,33 @@
               .from(".terminal", { opacity: 0, duration: 2 }, "-=1")
 
               // 2. Type first command
-              .to("#line1 .blinking-cursor", { opacity: 1, duration: 0.5 }) // cursor appears
-              .to("#line1-text", { text: "whoami", duration: 2 })
-              .to("#line1 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5") // cursor disappears
+              .to("#line1-text", { text: "whoami", duration: 2, delay: 1 })
+              .set("#line1 .blinking-cursor", { display: "none" })
 
               // 3. Show first output
               .set("#line2", { display: "block", text: "Yeshiva Bochur / Vibe Coder / Linux Tinkerer" })
-              .from("#line2", { opacity: 0, duration: 2 }, "-=0.5")
 
-              // 4. Type second command
-              .to("#line3 .blinking-cursor", { opacity: 1, duration: 0.5 }, "+=1")
+              // 4. Show and type second command
+              .set("#line3", { display: "block" })
               .to("#line3-text", { text: "cat ~/status.txt", duration: 3 })
-              .to("#line3 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5")
+              .set("#line3 .blinking-cursor", { display: "none" })
 
               // 5. Show second output
               .set("#line4", { display: "block", text: "Actively contributing to JTech Forums and modding apps for flip phones." })
-              .from("#line4", { opacity: 0, duration: 2 }, "-=0.5")
 
-              // 6. Type third command
-              .to("#line5 .blinking-cursor", { opacity: 1, duration: 0.5 }, "+=1")
+              // 6. Show and type third command
+              .set("#line5", { display: "block" })
               .to("#line5-text", { text: "ls -l ~/projects", duration: 3 })
-              .to("#line5 .blinking-cursor", { opacity: 0, duration: 0.5 }, "+=0.5")
+              .set("#line5 .blinking-cursor", { display: "none" })
 
               // 7. Show third output (as a pre-formatted block)
               .set("#line6", {
                   display: "block",
-                  innerHTML: `<pre>
+                  innerHTML: `<pre class="text-sm">
 -rw-r--r-- 1 dev-in-the-bm root 1.2K Oct 21 10:00 JDate-GNOME-Extension
 -rw-r--r-- 1 dev-in-the-bm root 3.4M Oct 20 14:30 Crescent-Remixer
 </pre>`
-              })
-              .from("#line6", { opacity: 0, duration: 2 }, "-=0.5");
+              });
         });
     </script>
 </body>
