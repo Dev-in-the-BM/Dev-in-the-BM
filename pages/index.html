@@ -358,15 +358,17 @@
         .gradient-border {
             position: relative;
             background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
-                        linear-gradient(135deg, var(--accent), var(--accent-secondary)) border-box;
+                        linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent)) border-box;
             border: 2px solid transparent;
             border-radius: 16px;
             background-size: 200% 200%;
-            transition: background-position 0.8s ease;
+            transition: background-position 0.8s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .gradient-border:hover {
             background-position: 100% 100%;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
         }
 
         .animate-on-scroll {
