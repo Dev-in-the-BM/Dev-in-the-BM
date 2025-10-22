@@ -65,6 +65,11 @@
             z-index: 9998;
             transition: transform 0.3s ease;
         }
+
+        body.terminal-hover .custom-cursor,
+        body.terminal-hover .cursor-follower {
+            display: none;
+        }
         
         .mono {
             font-family: 'JetBrains Mono', monospace;
@@ -112,6 +117,15 @@
             transform: translateY(-8px) scale(1.02);
             border-color: var(--accent);
             box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+        }
+
+        a,
+        .nav-link,
+        .btn-primary,
+        .btn-secondary,
+        .skill-badge,
+        .card {
+            cursor: pointer;
         }
         
         .nav-link {
@@ -275,7 +289,6 @@
         .terminal:hover {
             cursor: text;
         }
-        
         .terminal-header {
             background: #161b22;
             padding: 12px 20px;
@@ -498,7 +511,7 @@
 
     <!-- Terminal Section -->
     <section id="terminal-section" class="min-h-screen flex items-center justify-center px-6">
-        <div class="terminal max-w-3xl mx-auto">
+                <div class="terminal max-w-3xl mx-auto w-full">
             <div class="terminal-header">
                 <span class="text-gray-400 text-sm">dev-in-the-bm@ubuntu: ~</span>
                 <div class="terminal-buttons">
@@ -798,6 +811,7 @@
         // Custom Cursor
         const cursor = document.querySelector('.custom-cursor');
         const follower = document.querySelector('.cursor-follower');
+        const terminal = document.querySelector('.terminal');
 
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX - 10 + 'px';
@@ -817,6 +831,14 @@
         document.addEventListener('mouseup', () => {
             cursor.style.transform = 'scale(1)';
             follower.style.transform = 'scale(1)';
+        });
+
+        terminal.addEventListener('mouseenter', () => {
+            document.body.classList.add('terminal-hover');
+        });
+
+        terminal.addEventListener('mouseleave', () => {
+            document.body.classList.remove('terminal-hover');
         });
 
         // Particles.js
