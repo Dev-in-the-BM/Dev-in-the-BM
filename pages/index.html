@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Ubuntu+Mono:wght@400;700&display=swap');
         
         :root {
             --bg-primary: #0a0a0a;
@@ -280,8 +280,8 @@
             background: #0d1117;
             border: 1px solid #30363d;
             border-radius: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 18px;
             overflow: hidden;
             min-height: 350px; /* Prevent resizing during animation */
         }
@@ -292,11 +292,11 @@
         .terminal-header {
             background: #161b22;
             padding: 12px 20px;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid #444;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            cursor: default;
+            position: relative;
+            justify-content: flex-end;
         }
         
         .terminal-buttons {
@@ -513,7 +513,7 @@
     <section id="terminal-section" class="min-h-screen flex items-center justify-center px-6">
                 <div class="terminal max-w-3xl mx-auto w-full">
             <div class="terminal-header">
-                <span class="text-gray-400 text-sm">dev-in-the-bm@ubuntu: ~</span>
+                                <div class="absolute left-1/2 transform -translate-x-1/2 text-white font-bold text-sm">Terminal</div>
                 <div class="terminal-buttons">
                     <button class="bar__button" aria-label="Minimize"><i data-feather="minus" class="w-3 h-3"></i></button>
                     <button class="bar__button" aria-label="Maximize"><i data-feather="square" class="w-3 h-3"></i></button>
@@ -527,23 +527,26 @@
                         <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
                         <span id="line1-text"></span><span class="blinking-cursor"></span>
                     </p>
-                    <p id="line2" class="mb-4 ml-2" style="display: none;"></p>
+                    <p id="line2" class="mb-4" style="display: none;"></p>
                     <p id="line3" class="mb-2" style="display: none;">
                         <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
                         <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
                         <span id="line3-text"></span><span class="blinking-cursor"></span>
                     </p>
-                    <p id="line4" class="mb-4 ml-2" style="display: none;"></p>
+                    <p id="line4" class="mb-4" style="display: none;"></p>
                     <p id="line5" class="mb-2" style="display: none;">
                         <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
                         <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
                         <span id="line5-text"></span><span class="blinking-cursor"></span>
                     </p>
-                    <p id="line6" class="ml-2" style="display: none;"></p>
+                    <p id="line6" class="" style="display: none;"></p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div style="height: 100vh;"></div>
+
     <!-- About Section -->
     <section id="about" class="py-20 px-6 animate-on-scroll">
         <div class="max-w-7xl mx-auto">
@@ -961,8 +964,8 @@
                 scrollTrigger: {
                     trigger: "#terminal-section",
                     start: "top top",
-                    end: "+=4000", // Increased duration for a better feel
-                    scrub: 1,      // Smoother scrubbing
+                    end: "+=8000",
+                    scrub: 1,
                     pin: true,
                     onLeave: () => {
                         // When the terminal unpins, initialize the scroll animations for the rest of the page.
@@ -991,33 +994,33 @@
               .from(".terminal", { opacity: 0, duration: 2 }, "-=1")
 
               // 2. Type first command
-              .to("#line1-text", { text: "whoami", duration: 2, delay: 1 })
+              .to("#line1-text", { text: "whoami", duration: 1.2, delay: 1 })
               .set("#line1 .blinking-cursor", { display: "none" })
 
-              // 3. Show first output
-              .set("#line2", { display: "block", text: "Yeshiva Bochur / Vibe Coder / Linux Tinkerer" })
-
-              // 4. Show and type second command
+              // 3. Show first output and next prompt
+              .set("#line2", { display: "block", text: "dev-in-the-bm" })
               .set("#line3", { display: "block" })
-              .to("#line3-text", { text: "cat ~/status.txt", duration: 3 })
+
+              // 4. Type second command
+              .to("#line3-text", { text: "cat ~/status.txt", duration: 3.2, delay: 2 })
               .set("#line3 .blinking-cursor", { display: "none" })
 
-              // 5. Show second output
+              // 5. Show second output and next prompt
               .set("#line4", { display: "block", text: "Actively contributing to JTech Forums and modding apps for flip phones." })
-
-              // 6. Show and type third command
               .set("#line5", { display: "block" })
-              .to("#line5-text", { text: "ls -l ~/projects", duration: 3 })
+
+              // 6. Type third command
+              .to("#line5-text", { text: "ls -l ~/projects", duration: 3.4, delay: 2 })
               .set("#line5 .blinking-cursor", { display: "none" })
 
-              // 7. Show third output (as a pre-formatted block)
+              // 7. Show third output
               .set("#line6", {
                   display: "block",
-                  innerHTML: `<pre class="text-sm">
--rw-r--r-- 1 dev-in-the-bm root 1.2K Oct 21 10:00 JDate-GNOME-Extension
--rw-r--r-- 1 dev-in-the-bm root 3.4M Oct 20 14:30 Crescent-Remixer
-</pre>`
-              });
+                  innerHTML: `<pre class="text-sm">\n-rw-r--r-- 1 dev-in-the-bm root 1.2K Oct 21 10:00 JDate-GNOME-Extension\n-rw-r--r-- 1 dev-in-the-bm root 3.4M Oct 20 14:30 Crescent-Remixer\n</pre>`
+              })
+              
+              // 8. Add a final pause
+              .set({}, {}, "+=6");
         });
     </script>
 </body>
