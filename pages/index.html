@@ -219,6 +219,7 @@
             background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.15), transparent 50%);
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .project-card:hover::after {
@@ -795,7 +796,7 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- JDate Project -->
                     <div class="project-card">
-                        <div class="p-8">
+                        <div class="p-8 relative z-10">
                             <div class="flex items-center justify-between mb-6">
                                 <h3 class="text-2xl font-bold gradient-text">JDate</h3>
                                 <i data-feather="calendar" class="w-8 h-8 text-purple-400"></i>
@@ -809,7 +810,7 @@
                                 <span class="skill-badge">Hebrew Calendar</span>
                             </div>
                             <div class="flex gap-6">
-                                <a href="https://github.com/Dev-in-the-BM/JDate-devinthebm.com" class="btn-primary ripple">
+                                <a href="https://github.com/Dev-in-the-BM/JDate-devinthebm.com" class="btn-primary ripple" target="_blank" rel="noopener noreferrer">
                                     <i data-feather="github" class="w-5 h-5"></i>
                                     View on GitHub
                                 </a>
@@ -819,7 +820,7 @@
 
                     <!-- Crescent Remixer -->
                     <div class="project-card">
-                        <div class="p-8">
+                        <div class="p-8 relative z-10">
                             <div class="flex items-center justify-between mb-6">
                                 <h3 class="text-2xl font-bold gradient-text">Crescent Remixer</h3>
                                 <i data-feather="image" class="w-8 h-8 text-blue-400"></i>
@@ -833,7 +834,7 @@
                                 <span class="skill-badge">AI</span>
                             </div>
                             <div class="flex gap-6">
-                                <a href="https://github.com/Dev-in-the-BM/Crescent-Remixer" class="btn-primary ripple">
+                                <a href="https://github.com/Dev-in-the-BM/Crescent-Remixer" class="btn-primary ripple" target="_blank" rel="noopener noreferrer">
                                     <i data-feather="github" class="w-5 h-5"></i>
                                     View on GitHub
                                 </a>
