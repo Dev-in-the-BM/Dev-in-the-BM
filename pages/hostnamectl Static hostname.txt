@@ -1,0 +1,40 @@
+$ hostnamectl
+   Static hostname: yeshiva-node
+         Icon name: computer-laptop
+           Chassis: portable
+        Machine ID: 770613b21
+           Location: ~/beis-medrash
+             Locale: en_US.UTF-8
+             Region: new-york/monsey
+
+
+$ ps aux | grep tools
+USER       PID  %CPU %MEM   VSZ   RSS TTY      STAT START   TIME COMMAND
+naftali   2174   3.8  1.2  412000 21000 ?       Sl   Oct20   11:25 /usr/bin/wave-terminal --session=dev
+naftali   3041  11.0  4.5 1012000 92000 ?       Sl   Oct20   14:47 /usr/bin/Code --unity-launch
+naftali   3678   2.5  0.9  580000 16000 ?       Sl   Oct20    8:02 /usr/bin/zen-browser --profile=naftali
+
+$ id -nG
+dev-in-the-bm shmuztech jtech
+
+$ man life
+No manual entry for life
+
+Try these related manuals:
+  man gadgets
+  man tech
+  man linux
+
+To create a manual page: `mkdir -p ~/man/man1 && echo ".TH life 1" > ~/man/man1/life.1 && man -M ~/man life`
+
+$ sudo apt install sleep
+Error: Unable to locate package sleep
+
+$ sudo get-chocolate
+Permission denied: chocolate supply depleted. Try: sudo buy-chocolate
+
+
+
+
+
+

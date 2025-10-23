@@ -24,10 +24,10 @@
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="30" height="30" /> Featured Projects
 
-| Project | Description | Links |
-|---|---|---|
-|  **Jdate** | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/github-mark-white.svg)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-|   **Crescent Remixer** | Nano Banana powered image remixer. | [![GitHub](https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/github-mark-white.svg)](https://github.com/Dev-in-the-BM/Crescent-Remixer) |
+| Project              | Description                                              | Links                                                                                                     |
+| -------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Jdate**            | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
+| **Crescent Remixer** | Nano Banana powered image remixer.                       | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/Crescent-Remixer)     |
 
 ---
 
