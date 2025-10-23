@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-in-the-BM | Yeshiva Bochur & Vibe Coder</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Ubuntu+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #0f0f0f;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #7c3aed;
+            --accent-hover: #a855f7;
+            --accent-secondary: #3b82f6;
+            --border: #2a2a2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease;
+        }
+
+        body.terminal-hover .custom-cursor,
+        body.terminal-hover .cursor-follower {
+            display: none;
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+        }
+
+        a,
+        .nav-link,
+        .btn-primary,
+        .btn-secondary,
+        .skill-badge,
+        .card {
+            cursor: pointer;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            background: rgba(124, 58, 237, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .skill-badge {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .skill-badge:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .skill-badge:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+        }
+        
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-secondary), var(--accent));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: transparent;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+        }
+        
+        .terminal {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 18px;
+            overflow: hidden;
+            height: 450px; /* Fixed height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal-content {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .terminal-content p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .terminal:hover {
+            cursor: text;
+        }
+        .terminal-header {
+            background: #161b22;
+            padding: 12px 20px;
+            border-bottom: 1px solid #444;
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: flex-end;
+        }
+        
+        .terminal-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bar__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .bar__button:hover {
+            background-color: #444;
+        }
+
+        .bar__button--exit:hover {
+            background-color: #e04040;
+        }
+
+        .prompt-user { color: #5555FF; }
+        .prompt-at { color: #FFFF55; }
+        .prompt-hostname { color: #FF5555; }
+        .prompt-directory { color: #55FF55; }
+        .prompt-dollar { color: #FFFF55; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(124, 58, 237, 0.5); }
+            to { box-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 30px rgba(124, 58, 237, 0.6); }
+        }
+        
+        .typing-effect {
+            border-right: 3px solid var(--accent);
+            animation: blink 1s infinite;
+        }
+
+        .blinking-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background-color: var(--text-secondary);
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+        }
+        
+        .emoji-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        .inline-emoji {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+                        linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent)) border-box;
+            border: 2px solid transparent;
+            border-radius: 16px;
+            background-size: 200% 200%;
+            transition: background-position 0.8s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-border:hover {
+            background-position: 100% 100%;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
+        }
+
+
+        .fade-in {
+            animation: fadeInAnimation 1s ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="particles-js"></div>
+    <div class="parallax-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-opacity-90 backdrop-blur-xl bg-opacity-90 backdrop-blur-xl z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl floating"></div>
+                    <span class="font-bold text-xl">dev-in-the-bm</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-white">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white">About</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white">Skills</a>
+                    <a href="#sponsor" class="nav-link text-gray-300 hover:text-white">Sponsor</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-300" onclick="toggleMobileMenu()">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-20 relative">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="mb-8 relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur-xl opacity-50 floating"></div>
+                <img src="https://raw.githubusercontent.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/banner.png" alt="Profile Banner" class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-gray-800 shadow-2xl">
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-6">
+                Hi <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="50" height="50" class="inline-emoji" />, I'm <span class="gradient-text">Dev-in-the-BM</span>
+            </h1>
+            <div class="text-2xl md:text-3xl text-gray-400 mb-8 max-w-4xl mx-auto">
+                <span class="inline-flex items-center gap-2 mb-2">
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" class="inline-emoji" />
+                    <span>Yeshiva Bochur</span>
+                </span>
+                <span class="mx-4">•</span>
+                <span class="inline-flex items-center gap-2">
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" class="inline-emoji" />
+                    <span>Vibe Coder</span>
+                </span>
+            </div>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#projects" class="btn-primary glow">
+                    <i data-feather="briefcase" class="w-5 h-5"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i data-feather="mail" class="w-5 h-5"></i>
+                    Get in Touch
+                </a>
+            </div>
+            <div class="scroll-indicator mt-12">
+                <i data-feather="chevron-down" class="w-8 h-8 mx-auto text-gray-500"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Section -->
+    <section id="terminal-section" class="min-h-screen flex items-center justify-center px-6">
+                <div class="terminal max-w-3xl mx-auto w-full">
+            <div class="terminal-header">
+                                <div class="absolute left-1/2 transform -translate-x-1/2 text-white font-bold text-sm">Terminal</div>
+                <div class="terminal-buttons">
+                    <button class="bar__button" aria-label="Minimize"><i data-feather="minus" class="w-3 h-3"></i></button>
+                    <button class="bar__button" aria-label="Maximize"><i data-feather="square" class="w-3 h-3"></i></button>
+                    <button class="bar__button bar__button--exit" aria-label="Close"><i data-feather="x" class="w-3 h-3"></i></button>
+                </div>
+            </div>
+            <div class="py-6 text-left terminal-content">
+                <div class="text-gray-300">
+                    <p id="line1">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line1-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line2" style="display: none;"></p>
+                    <p id="line3" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line3-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line4" style="display: none;"></p>
+                    <p id="line5" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line5-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line6" style="display: none;"></p>
+                    <p id="line7" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line7-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line8" style="display: none;"></p>
+                    <p id="line9" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line9-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line10" style="display: none;"></p>
+                    <p id="line11" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line11-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line12" style="display: none;"></p>
+                    <p id="line13" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line13-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line14" style="display: none;"></p>
+                    <p id="line15" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line15-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line16" style="display: none;"></p>
+                    <p id="line17" style="display: none;">
+                        <span class="prompt-user">dev-in-the-bm</span><span class="prompt-at">@</span><span class="prompt-hostname">ubuntu</span>:
+                        <span class="prompt-directory">~</span><span class="prompt-dollar">$</span>
+                        <span id="line17-text"></span><span class="blinking-cursor"></span>
+                    </p>
+                    <p id="line18" class="" style="display: none;"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 100vh;"></div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 animate-on-scroll">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black text-center mb-12">
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Information.png" alt="Information" width="50" height="50" class="inline-emoji" /> About Me
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card gradient-border">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" class="inline-emoji" />
+                        My Journey
+                    </h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <span class="text-purple-500 mt-1">•</span>
+                            Yeshiva bochur - currently learning בתולה נשאת
+                        </p>
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <span class="text-blue-500 mt-1">•</span>
+                            App modder - I love making app mods, out of my *flip phone*
+                        </p>
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <span class="text-green-500 mt-1">•</span>
+                            Active on <a href="http://forums.jtechforums.org/invites/8jD5U8NMxr" class="text-blue-400 hover:text-blue-300 underline">JTech Forums</a> — discussing filtering, Linux, app modding, and pretty much anything tech related
+                        </p>
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <span class="text-yellow-500 mt-1">•</span>
+                            Do you think Linux on desktop is ready to go mainstream? <a href="https://forums.jtechforums.org/t/make-linux-mainstream/1754" class="text-blue-400 hover:text-blue-300 underline">Make Linux Mainstream</a>
+                        </p>
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <span class="text-red-500 mt-1">•</span>
+                            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Desktop Computer" width="30" height="30" class="inline-emoji" /> Somehow my Linux environment still works. Not sure why.
+                        </p>
+                    </div>
+                </div>
+                <div class="card gradient-border">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="30" height="30" class="inline-emoji" />
+                        Focus Areas
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Penguin.png" alt="Penguin" width="25" height="25" class="inline-emoji" />
+                            <div>
+                                <p class="font-semibold text-white">Linux Enthusiast</p>
+                                <p class="text-sm text-gray-400">Making Linux mainstream, one command at a time</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" alt="Hammer and Wrench" width="25" height="25" class="inline-emoji" />
+                            <div>
+                                <p class="font-semibold text-white">App Modding</p>
+                                <p class="text-sm text-gray-400">Creating kosher mods for filtered devices</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Left%20Speech%20Bubble.png" alt="Left Speech Bubble" width="25" height="25" class="inline-emoji" />
+                            <div>
+                                <p class="font-semibold text-white">Community Building</p>
+                                <p class="text-sm text-gray-400">Active contributor to JTech Forums</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" alt="Mobile Phone" width="25" height="25" class="inline-emoji" />
+                            <div>
+                                <p class="font-semibold text-white">Mobile Development</p>
+                                <p class="text-sm text-gray-400">From flip phones to modern apps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-900 bg-opacity-50 animate-on-scroll">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black text-center mb-12">
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="50" height="50" class="inline-emoji" /> Featured Projects
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- JDate Project -->
+                <div class="project-card">
+                    <div class="bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold gradient-text">JDate</h3>
+                            <i data-feather="calendar" class="w-8 h-8 text-purple-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-6 text-lg">
+                            A GNOME extension adding the Jewish date to the top bar. Perfect for keeping track of Hebrew calendar dates while working on your Linux desktop.
+                        </p>
+                        <div class="flex gap-3 mb-6">
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">GNOME</span>
+                            <span class="skill-badge">Hebrew Calendar</span>
+                        </div>
+                        <div class="flex gap-6">
+                            <a href="https://github.com/Dev-in-the-BM/JDate-devinthebm.com" class="btn-primary">
+                                <i data-feather="github" class="w-5 h-5"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crescent Remixer -->
+                <div class="project-card">
+                    <div class="bg-gradient-to-br from-blue-900/20 to-pink-900/20 p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold gradient-text">Crescent Remixer</h3>
+                            <i data-feather="image" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-6 text-lg">
+                            Nano Banana powered image remixer. Transform ordinary images into creative artworks with the power of AI and creative algorithms.
+                        </p>
+                        <div class="flex gap-3 mb-6">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Image Processing</span>
+                            <span class="skill-badge">AI</span>
+                        </div>
+                        <div class="flex gap-6">
+                            <a href="https://github.com/Dev-in-the-BM/Crescent-Remixer" class="btn-primary">
+                                <i data-feather="github" class="w-5 h-5"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsor Section -->
+    <section id="sponsor" class="py-20 px-6 animate-on-scroll">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black text-center mb-12">
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="50" height="50" class="inline-emoji" /> Sponsor my projects
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="card text-center hover:scale-105 transition-transform">
+                    <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Assets/Tux.PNG?raw=true" alt="Tux Linux Mascot" class="w-20 h-20 mx-auto mb-4" />
+                    <h3 class="text-xl font-bold mb-2">FOSS Projects</h3>
+                    <p class="text-gray-400 text-sm">Contributing to and creating open-source software for the community.</p>
+                </div>
+                <div class="card text-center hover:scale-105 transition-transform">
+                    <img src="https://raw.githubusercontent.com/Dev-in-the-BM/Dev-in-the-BM/5faee36148d23546f43bd27b61012bec21164caa/android-head_flat.svg" alt="Android Head" class="w-20 h-20 mx-auto mb-4" />
+                    <h3 class="text-xl font-bold mb-2">Android App Mods</h3>
+                    <p class="text-gray-400 text-sm">Modifying Android apps for kashrus and better usability on filtered devices.</p>
+                </div>
+                <div class="card text-center hover:scale-105 transition-transform">
+                    <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/Jtech%20Logo.png?raw=true" alt="JTech Logo" class="w-20 h-20 mx-auto mb-4" />
+                    <h3 class="text-xl font-bold mb-2">JTech Forums</h3>
+                    <p class="text-gray-400 text-sm">Active participation and contributions to discussions about kosher tech, filtering, Linux, and more.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-xl text-gray-300 mb-8">Your sponsorship helps me dedicate more time to these projects.</p>
+                <a href="https://buymeacoffee.com/devinthebm" class="btn-primary glow text-lg">
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Chocolate%20Bar.png" alt="Chocolate Bar" width="25" height="25" class="inline-emoji" />
+                    Buy me some chocolate
+                </a>
+                <p class="mt-6 text-gray-400">
+                    Thank you for your support! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands.png" alt="Folded Hands" width="30" height="30" class="inline-emoji" />
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 animate-on-scroll">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black text-center mb-12">
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="50" height="50" class="inline-emoji" /> Skills & Tools
+            </h2>
+            
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span></span> Languages
+                </h3>
+                <div class="flex flex-wrap gap-4">
+                    <div class="skill-badge">
+                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Toolbox.png" alt="Toolbox" width="25" height="25" class="inline-emoji" /> Environments & Tools
+                </h3>
+                <div class="flex flex-wrap gap-4">
+                    <img src="https://img.shields.io/static/v1?label=🧠&message=Yiddeshe%20Kup&labelColor=000000&color=333333&style=for-the-badge" alt="Yiddeshe Kup" />
+                    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
+                    <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white" alt="Ubuntu" />
+                    <img src="https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white" alt="GNOME" />
+                    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+                    <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code" />
+                    <img src="https://img.shields.io/badge/Zen%20Browser-black?style=for-the-badge&logo=zenbrowser&logoColor=white" alt="Zen Browser" />
+                </div>
+            </div>
+
+            <!-- GitHub Stats -->
+            <div class="card gradient-border">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Bar Chart" width="30" height="30" class="inline-emoji" /> GitHub Stats
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <img src="https://github-readme-stats.vercel.app/api?username=Dev-in-the-BM&show_icons=true&theme=radical" alt="GitHub Stats" class="w-full rounded-lg" />
+                    </div>
+                    <div>
+                        <img src="https://github-profile-trophy.vercel.app/?username=Dev-in-the-BM&theme=radical&column=7&margin-w=15&margin-h=15&title=Followers,Commit,Issues,Repositories,Stars" alt="GitHub Trophy" class="w-full rounded-lg" />
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-center gap-4">
+                    <img src="https://komarev.com/ghpvc/?username=Dev-in-the-BM&label=Profile%20Visitors&color=blueviolet&style=flat-square" alt="Visitor Count" />
+                    <img src="https://hit.yhype.me/github/profile?account_id=214166829" alt="Hit Count" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-900 bg-opacity-50 animate-on-scroll">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-black mb-8">
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Left%20Speech%20Bubble.png" alt="Left Speech Bubble" width="50" height="50" class="inline-emoji" /> Get In Touch
+            </h2>
+            <p class="text-xl text-gray-400 mb-12">
+                I'm always interested in hearing about new projects, collaborations, and opportunities.
+            </p>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="mailto:contact@example.com" class="btn-primary glow">
+                    <i data-feather="mail" class="w-5 h-5"></i>
+                    Email Me
+                </a>
+                <a href="https://github.com/Dev-in-the-BM" class="btn-secondary">
+                    <i data-feather="github" class="w-5 h-5"></i>
+                    GitHub
+                </a>
+            </div>
+            <div class="flex justify-center gap-8">
+                <a href="https://github.com/Dev-in-the-BM" class="text-gray-400 hover:text-white transition-all hover:scale-110">
+                    <i data-feather="github" class="w-8 h-8"></i>
+                </a>
+                <a href="https://forums.jtechforums.org/invites/8jD5U8NMxr" class="text-gray-400 hover:text-white transition-all hover:scale-110">
+                    <i data-feather="message-circle" class="w-8 h-8"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <img src="https://capsule-render.vercel.app/api?type=waving&height=150&color=gradient§ion=footer" alt="Wave" class="w-full mb-6" />
+            <p class="text-gray-500 text-lg">
+                © 2024 dev-in-the-bm. Built with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="25" height="25" class="inline-emoji" /> Yiddeshe Kup and lots of <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Hot%20Beverage.png" alt="Hot Beverage" width="25" height="25" class="inline-emoji" />
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+        const terminal = document.querySelector('.terminal');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX - 20 + 'px';
+                follower.style.top = e.clientY - 20 + 'px';
+            }, 100);
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.8)';
+            follower.style.transform = 'scale(0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)';
+            follower.style.transform = 'scale(1)';
+        });
+
+        terminal.addEventListener('mouseenter', () => {
+            document.body.classList.add('terminal-hover');
+        });
+
+        terminal.addEventListener('mouseleave', () => {
+            document.body.classList.remove('terminal-hover');
+        });
+
+        // Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#7c3aed'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#7c3aed',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+        // Terminal typing effect
+        const terminalLines = document.querySelectorAll('.terminal .text-green-400 p');
+        terminalLines.forEach((line, index) => {
+            line.style.opacity = '0';
+            setTimeout(() => {
+                line.style.transition = 'opacity 0.5s ease';
+                line.style.opacity = '1';
+            }, index * 1000);
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.parallax-bg');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            // Implement mobile menu toggle logic here
+            console.log('Mobile menu toggled');
+        }
+
+        // GSAP Scroll-Sequence for Terminal
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+            function scrollTerminal() {
+                const el = document.querySelector('.terminal-content');
+                if (el) {
+                    el.scrollTop = el.scrollHeight;
+                }
+            }
+
+            const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            gsap.set(sectionsToAnimate, { opacity: 0 }); // Initially hide sections
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#terminal-section",
+                    start: "top top",
+                    end: "+=8000",
+                    scrub: 1,
+                    pin: true,
+                }
+            });
+
+            // 1. Fade out hero, fade in terminal
+            tl.to("#hero", { opacity: 0, duration: 2 })
+              .from(".terminal", { opacity: 0, duration: 2 }, "-=1")
+
+              // 2. Type first command
+              .to("#line1-text", { text: "whoami", duration: 1.2, delay: 1, onComplete: scrollTerminal })
+              .set("#line1 .blinking-cursor", { display: "none" })
+
+              // 3. Show first output and next prompt
+              .set("#line2", { display: "block", text: "dev-in-the-bm", onComplete: scrollTerminal })
+              .set("#line3", { display: "block", onComplete: scrollTerminal })
+
+              // 4. Type second command
+              .to("#line3-text", { text: "cat ~/status.txt", duration: 3.2, delay: 2, onComplete: scrollTerminal })
+              .set("#line3 .blinking-cursor", { display: "none" })
+
+              // 5. Show second output and next prompt
+              .set("#line4", { display: "block", text: "Actively contributing to JTech Forums and modding apps for flip phones.", onComplete: scrollTerminal })
+              .set("#line5", { display: "block", onComplete: scrollTerminal })
+
+              // 6. Type third command
+              .to("#line5-text", { text: "ls -l ~/projects", duration: 3.4, delay: 2, onComplete: scrollTerminal })
+              .set("#line5 .blinking-cursor", { display: "none" })
+
+              // 7. Show third output
+              .set("#line6", {
+                  display: "block",
+                  innerHTML: `<pre>\n-rw-r--r-- 1 dev-in-the-bm root 1.2K Oct 21 10:00 JDate-GNOME-Extension\n-rw-r--r-- 1 dev-in-the-bm root 3.4M Oct 20 14:30 Crescent-Remixer\n</pre>`,
+                  onComplete: scrollTerminal
+              })
+              .set("#line7", { display: "block", onComplete: scrollTerminal })
+              
+              // 8. Type hostnamectl
+              .to("#line7-text", { text: "hostnamectl", duration: 2, delay: 2, onComplete: scrollTerminal })
+              .set("#line7 .blinking-cursor", { display: "none" })
+
+              // 9. Show hostnamectl output
+              .set("#line8", {
+                  display: "block",
+                  innerHTML: `<pre>   Static hostname: yeshiva-node\n         Icon name: computer-laptop\n           Chassis: portable\n        Machine ID: 770613b21\n           Location: ~/beis-medrash\n             Locale: en_US.UTF-8\n             Region: new-york/monsey</pre>`,
+                  onComplete: scrollTerminal
+              })
+              .set("#line9", { display: "block", onComplete: scrollTerminal })
+
+              // 10. Type ps aux | grep tools
+              .to("#line9-text", { text: "ps aux | grep tools", duration: 3, delay: 2, onComplete: scrollTerminal })
+              .set("#line9 .blinking-cursor", { display: "none" })
+
+              // 11. Show ps aux output
+              .set("#line10", {
+                  display: "block",
+                  innerHTML: `<pre>USER       PID  %CPU %MEM   VSZ   RSS TTY      STAT START   TIME COMMAND\nnaftali   2174   3.8  1.2  412000 21000 ?       Sl   Oct20   11:25 /usr/bin/wave-terminal --session=dev\nnaftali   3041  11.0  4.5 1012000 92000 ?       Sl   Oct20   14:47 /usr/bin/Code --unity-launch\nnaftali   3678   2.5  0.9  580000 16000 ?       Sl   Oct20    8:02 /usr/bin/zen-browser --profile=naftali</pre>`,
+                  onComplete: scrollTerminal
+              })
+              .set("#line11", { display: "block", onComplete: scrollTerminal })
+
+              // 12. Type id -nG
+              .to("#line11-text", { text: "id -nG", duration: 1.5, delay: 2, onComplete: scrollTerminal })
+              .set("#line11 .blinking-cursor", { display: "none" })
+
+              // 13. Show id -nG output
+              .set("#line12", { display: "block", text: "dev-in-the-bm shmuztech jtech", onComplete: scrollTerminal })
+              .set("#line13", { display: "block", onComplete: scrollTerminal })
+
+              // 14. Type man life
+              .to("#line13-text", { text: "man life", duration: 1.5, delay: 2, onComplete: scrollTerminal })
+              .set("#line13 .blinking-cursor", { display: "none" })
+
+              // 15. Show man life output
+              .set("#line14", {
+                  display: "block",
+                  innerHTML: `<pre>No manual entry for life\n\nTry these related manuals:\n  man gadgets\n  man tech\n  man linux\n\nTo create a manual page: <code>mkdir -p ~/man/man1 && echo \".TH life 1\". > ~/man/man1/life.1 && man -M ~/man life</code></pre>`,
+                  onComplete: scrollTerminal
+              })
+              .set("#line15", { display: "block", onComplete: scrollTerminal })
+
+              // 16. Type sudo apt install sleep
+              .to("#line15-text", { text: "sudo apt install sleep", duration: 3, delay: 2, onComplete: scrollTerminal })
+              .set("#line15 .blinking-cursor", { display: "none" })
+
+              // 17. Show sudo apt install sleep output
+              .set("#line16", { display: "block", text: "Error: Unable to locate package sleep", onComplete: scrollTerminal })
+              .set("#line17", { display: "block", onComplete: scrollTerminal })
+
+              // 18. Type sudo get-chocolate
+              .to("#line17-text", { text: "sudo get-chocolate", duration: 3, delay: 2, onComplete: scrollTerminal })
+              .set("#line17 .blinking-cursor", { display: "none" })
+
+              // 19. Show sudo get-chocolate output
+              .set("#line18", { display: "block", text: "Permission denied: chocolate supply depleted. Try: sudo buy-chocolate", onComplete: scrollTerminal })
+              
+              // 20. Add a final pause
+              .set({}, {}, "+=6")
+
+              // 21. Fade out terminal
+              .to(".terminal", { 
+                  opacity: 0, 
+                  duration: 2, 
+                  onComplete: () => {
+                    // When the terminal fades out, initialize the scroll animations for the rest of the page.
+                    sectionsToAnimate.forEach(section => {
+                        gsap.fromTo(section,
+                            { opacity: 0, y: 50 },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 1,
+                                scrollTrigger: {
+                                    trigger: section,
+                                    start: 'top 80%',
+                                    end: 'bottom 20%',
+                                    toggleActions: 'play reverse play reverse'
+                                }
+                            }
+                        );
+                    });
+                  }
+              });
+        });
+    </script>
+</body>
+</html>
