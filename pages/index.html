@@ -382,7 +382,10 @@
 
     </style>
 </head>
-<body class="bg-black">
+<body class="bg-zinc-950">
+    <div class="loader-overlay fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div class="text-purple-500 animate-pulse font-mono text-xl">INITIALIZING VIBES...</div>
+    </div>
     <div id="gradient-blob-container" class="fixed inset-0 -z-10"></div>
 
     <div id="main-container">
@@ -413,43 +416,31 @@
             </div>
         </nav>
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-20 relative">
-            <div class="max-w-7xl mx-auto text-center">
-                <div class="mb-8 relative">
-                    <div id="floating-emoji-1" class="absolute text-4xl" style="top: 10%; left: 10%;">🎩</div>
-                    <div id="floating-emoji-2" class="absolute text-4xl" style="top: 20%; right: 15%;">✨</div>
-                    <div id="floating-emoji-3" class="absolute text-4xl" style="bottom: 30%; left: 20%;">🐧</div>
-                    <div id="floating-emoji-4" class="absolute text-4xl" style="bottom: 20%; right: 10%;">💻</div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur-xl opacity-50 floating"></div>
-                    <img src="https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/banner.png?raw=truems" alt="Profile Banner" class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-gray-800 shadow-2xl">
+        <section id="hero" class="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-40">
+                <div class="hero-banner w-full h-[120%] bg-cover bg-center" style="background-image: url(https://github.com/Dev-in-the-BM/Dev-in-the-BM/blob/main/banner.png?raw=true)"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-purple-900/20"></div>
+            </div>
+            <div class="relative z-10 text-center space-y-8 px-4">
+                <div class="overflow-hidden">
+                    <h1 class="text-6xl md:text-9xl font-black tracking-tighter flex justify-center gap-1 md:gap-4">
+                        <span class="hero-title-char inline-block">D</span><span class="hero-title-char inline-block">E</span><span class="hero-title-char inline-block">V</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">I</span><span class="hero-title-char inline-block">N</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">T</span><span class="hero-title-char inline-block">H</span><span class="hero-title-char inline-block">E</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">B</span><span class="hero-title-char inline-block">M</span>
+                    </h1>
                 </div>
-                <h1 class="text-6xl md:text-8xl font-black mb-6">
-                    Hi <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="50" height="50" class="inline-emoji" />, I'm <span class="gradient-text">Dev-in-the-BM</span>
-                </h1>
-                <div class="text-2xl md:text-3xl text-gray-400 mb-8 max-w-4xl mx-auto">
-                    <span class="inline-flex items-center gap-2 mb-2">
-                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" width="25" height="25" class="inline-emoji" />
-                        <span>Yeshiva Bochur</span>
+                <div class="hero-subtitle flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-3xl font-light">
+                    <span class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-zinc-800">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" class="w-8 h-8" />
+                        Yeshiva Bochur
                     </span>
-                    <span class="mx-4">•</span>
-                    <span class="inline-flex items-center gap-2">
-                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" class="inline-emoji" />
-                        <span>Vibe Coder</span>
+                    <span class="hidden md:inline text-purple-500">•</span>
+                    <span class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-purple-500/30 text-purple-300">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" class="w-8 h-8" />
+                        Vibe Coder
                     </span>
                 </div>
-                <div class="flex justify-center gap-6 mb-12">
-                    <a href="#projects" class="btn-primary glow">
-                        <i data-feather="briefcase" class="w-5 h-5"></i>
-                        View Projects
-                    </a>
-                    <a href="#contact" class="btn-secondary">
-                        <i data-feather="mail" class="w-5 h-5"></i>
-                        Get in Touch
-                    </a>
-                </div>
-                <div class="scroll-indicator mt-12">
-                    <i data-feather="chevron-down" class="w-8 h-8 mx-auto text-gray-500"></i>
-                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <i data-feather="arrow-down" class="text-zinc-600"></i>
             </div>
         </section>
 
@@ -848,26 +839,36 @@
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-            // Floating emojis animation
-            const floatingEmojis = [
-                document.getElementById('floating-emoji-1'),
-                document.getElementById('floating-emoji-2'),
-                document.getElementById('floating-emoji-3'),
-                document.getElementById('floating-emoji-4')
-            ];
-            floatingEmojis.forEach((emoji, index) => {
-              if (emoji) {
-                gsap.to(emoji, {
-                    y: () => gsap.utils.random(-20, 20),
-                    x: () => gsap.utils.random(-20, 20),
-                    rotation: () => gsap.utils.random(-15, 15),
-                    duration: () => gsap.utils.random(2, 4),
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "power1.inOut",
-                    delay: index * 0.2
-                });
-              }
+            const tl = gsap.timeline();
+            tl.to('.loader-overlay', {
+                yPercent: -100,
+                duration: 1.2,
+                ease: 'expo.inOut',
+                delay: 0.5
+            })
+            .from('.hero-title-char', {
+                y: 150,
+                opacity: 0,
+                stagger: 0.05,
+                duration: 1,
+                ease: 'back.out(1.7)',
+            }, '-=0.8')
+            .from('.hero-subtitle', {
+                opacity: 0,
+                y: 20,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.6');
+
+            gsap.to('.hero-banner', {
+                yPercent: 30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero-section',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
             });
 
             const blobContainer = document.getElementById('gradient-blob-container');
@@ -927,7 +928,7 @@
             const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
             gsap.set(sectionsToAnimate, { opacity: 0 }); // Initially hide sections
 
-            const tl = gsap.timeline({
+            const terminalTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: "#terminal-section",
                     start: "top top",
@@ -938,7 +939,7 @@
             });
 
             // 1. Fade out hero, fade in terminal
-            tl.to("#hero", { opacity: 0, duration: 2 })
+            terminalTl.to("#hero", { opacity: 0, duration: 2 })
               .from(".terminal", { opacity: 0, duration: 2 }, "-=")
 
               // 2. Type first command
