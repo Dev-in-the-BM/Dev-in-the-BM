@@ -433,13 +433,13 @@
                         <div class="flex justify-center gap-1 md:gap-2 mt-4"><span class="hero-title-char inline-block">D</span><span class="hero-title-char inline-block">e</span><span class="hero-title-char inline-block">v</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">i</span><span class="hero-title-char inline-block">n</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">t</span><span class="hero-title-char inline-block">h</span><span class="hero-title-char inline-block">e</span><span class="hero-title-char inline-block">-</span><span class="hero-title-char inline-block">B</span><span class="hero-title-char inline-block">M</span></div>
                     </h1>
                 </div>
-                <div class="hero-subtitle flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-2xl">
-                    <span class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-zinc-800">
+                <div class="hero-subtitle flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-2xl mt-48">
+                    <span id="hero-bochur" class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-zinc-800">
                         <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Top%20Hat.png" alt="Top Hat" class="w-8 h-8" />
                         Yeshiva Bochur
                     </span>
                     <span class="hidden md:inline text-purple-500">•</span>
-                    <span class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-purple-500/30 text-purple-300">
+                    <span id="hero-coder" class="flex items-center gap-2 bg-zinc-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-purple-500/30 text-purple-300">
                         <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" class="w-8 h-8" />
                         Vibe Coder
                     </span>
@@ -874,13 +874,23 @@
                 stagger: 0.05,
                 duration: 1.2,
                 ease: 'back.out(1.7)',
-            }, '-=0.6')
-            .from('.hero-subtitle', {
-                opacity: 0,
-                y: 20,
-                duration: 1,
-                ease: 'power3.out'
             }, '-=0.6');
+
+            // Animate subtitles after the main title
+            tl.from('#hero-bochur', {
+                x: -400,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'elastic.out(0.5, 0.2)' // Creates a quick succession of small, decaying bounces
+            }, "+=0.5") // Starts after a delay
+            
+            // Animate the second element
+            .from('#hero-coder', {
+                x: 400,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'elastic.out(0.5, 0.2)' // Same recoil effect
+            }, "+=0.3"); // Starts AFTER the first animation completes
 
             gsap.to('.hero-banner', {
                 yPercent: 30,
