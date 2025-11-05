@@ -77,5 +77,8 @@
 
 ![](https://hit.yhype.me/github/profile?account_id=214166829)
 
+[![Dev-in-the-BM profile views](https://u8views.com/api/v1/github/profiles/214166829/views/day-week-month-total-count.svg)](https://u8views.com/github/Dev-in-the-BM)
+
+
 ![wave](https://capsule-render.vercel.app/api?type=waving&height=150&color=gradient§ion=footer)
 
