@@ -26,8 +26,8 @@
 
 | Project              | Description                                              | Links                                                                                                     |
 | -------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Jdate**            | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
-| **Crescent Remixer** | Nano Banana powered image remixer.                       | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/Crescent-Remixer)     |
+| **ZmanBar**            | A GNOME extension adding the Jewish date to the top bar. | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/JDate-devinthebm.com) |
+| **Fluid ID** | Nano Banana powered image remixer.                       | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/Crescent-Remixer)     |
 
 ---
 
