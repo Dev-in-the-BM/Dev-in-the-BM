@@ -26,8 +26,7 @@
 
 | Project              | Description                                              | Links                                                                                                     |
 | -------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **ZmanBar**            | Seamlessly integrates the Hebrew date into the GNOME top panel. This elegant GNOME extension ensures the current Hebrew date is always visible and perfectly integrated.
-                            </p> | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/ZmanBar) |
+| **ZmanBar**            | Seamlessly integrates the Hebrew date into the GNOME top panel. This elegant GNOME extension ensures the current Hebrew date is always visible and perfectly integrated. | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/ZmanBar) |
 | **Fluid ID** | AI-powered identity shifter. Instantly remix photos using a custom Prompt Builder to be anyone, anywhere.                       | [![GitHub](https://badgelab.dev/api/badge/github)](https://github.com/Dev-in-the-BM/Fluid-ID)     |
 
 ---
