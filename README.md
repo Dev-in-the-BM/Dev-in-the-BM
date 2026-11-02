@@ -9,10 +9,10 @@
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Information.png" alt="Information" width="25" height="25" /> About Me
 
 - I love exploring and learning new things, especially when it has to do with tech
-- Dabbling a bit in esp32 HMIs
-- I begrdgingly acknowledge that the box exists, not sure what thats supposed to do with me, though
-- Love Linux, but have to admit that it does sound like NT is architecturely superior
-- I'm pasionate about dumb intentional, and kosher tech
+- Playing around a bit with ESP-32 HMIs
+- I begrudgingly acknowledge that the box exists, not sure what that's supposed to do with me, though
+- Love Linux, but have to admit that it does sound like NT is architecturally superior
+- I'm passionate about dumb, intentional, and kosher tech
 
 ---
 
